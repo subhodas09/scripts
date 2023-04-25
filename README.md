@@ -4,8 +4,9 @@ This script updates the Docker Hub credentials stored in a Kubernetes secret acr
 
 ## Prerequisites
 
-- `kubectl` installed and configured to access your Kubernetes cluster
-- `yq` command-line tool installed (version 4.x)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured to access your Kubernetes cluster.
+- [jq](https://stedolan.github.io/jq/download/) installed, a command-line JSON processor.
+- [yq](https://github.com/mikefarah/yq#install) installed, a command-line YAML processor.
 
 ## Configuration
 
@@ -41,7 +42,7 @@ EXCLUDED_NAMESPACES=kube-system|aws-observability|aws-secrets-manager|aws-load-b
 Follow the instructions in the comments to set the appropriate values for your environment.
 
 ## Usage
-1. Set up the config.txt file with your Docker Hub credentials, Kubernetes secret name, and desired namespaces.
+1. Set up the `config.txt` file with your Docker Hub credentials, Kubernetes secret name, and desired namespaces.
 2. Make the script executable:
 ```bash
 chmod +x update_dockerhub_credentials.sh
@@ -54,11 +55,11 @@ The script will update the Docker Hub credentials in the specified namespaces or
 
 ## Backup
 
-The script creates a backup file in the same directory, named backup_secrets_<timestamp>.txt, containing the existing secrets before updating them. The backup file includes the namespace information and the original secret configuration in YAML format.
+The script creates a backup file in the same directory, named `backup_secrets_<timestamp>.txt`, containing the existing secrets before updating them. The backup file includes the namespace information and the original secret configuration in YAML format.
 
 ## Troubleshooting
 
-Ensure that kubectl and yq are installed and properly configured. If you encounter issues with the script, check the following:
+Ensure that `kubectl` and `yq` are installed and properly configured. If you encounter issues with the script, check the following:
 
 - Verify that your Docker Hub credentials are correct.
 - Ensure that the Kubernetes secret name is correct and exists in the specified namespaces.
