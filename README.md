@@ -42,12 +42,18 @@ EXCLUDED_NAMESPACES=kube-system|aws-observability|aws-secrets-manager|aws-load-b
 Follow the instructions in the comments to set the appropriate values for your environment.
 
 ## Usage
-1. Set up the `config.txt` file with your Docker Hub credentials, Kubernetes secret name, and desired namespaces.
-2. Make the script executable:
+1. Clone this repository or download the `update_docker_registry_secrets.sh` and `config.txt` files.
+2. Update the `config.txt` file with your Docker registry credentials and desired namespaces.
+   - Set the `SECRET_NAME` variable to the name of the Kubernetes secret containing the Docker registry credentials.
+   - Set the `DOCKER_REGISTRY` variable to the URL of the Docker registry to update the credentials for.
+   - Set the `AUTH_BASE64` variable to the base64 encoded username and password for the Docker registry.
+   - Set the `NAMESPACES` variable to "all", "auto", or a comma-separated list of specific namespaces.
+   - Update the `EXCLUDED_NAMESPACES` array to include any additional namespaces you want to exclude from updates.
+3. Make the script executable:
 ```bash
 chmod +x update_dockerhub_credentials.sh
 ```
-3.Run the script:
+4.Run the script:
 ```bash
 ./update_dockerhub_credentials.sh
 ```
