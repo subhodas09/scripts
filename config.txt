@@ -1,0 +1,33 @@
+# Docker Hub username
+# Replace 'your_dockerhub_username' with your Docker Hub account username
+
+DOCKERHUB_USERNAME=your_dockerhub_username
+
+# Docker Hub password
+# Replace 'your_dockerhub_password' with your Docker Hub account password or access token
+
+DOCKERHUB_PASSWORD=your_dockerhub_password
+
+# # Docker registry URL (the URL of the Docker registry to update the credentials for)
+DOCKER_REGISTRY="https://index.docker.io/v1/"
+
+# Kubernetes secret name
+# Replace 'your_secret_name' with the name of the Kubernetes secret containing the Docker Hub credentials
+
+SECRET_NAME=your_secret_name
+
+# Namespaces to update
+# Provide a list of namespaces to update, use '("all")' to update all namespaces except excluded ones
+# For a single namespace: ("your_single_namespace")
+# For multiple namespaces: ("namespace1" "namespace2" "namespace3")
+# For all namespaces: ("all")
+# For automatically updating the secret in namespaces that have the specified secret name use namespaces: ("auto")
+
+NAMESPACE=("auto")
+
+# Excluded namespaces
+# Specify the namespaces you want to exclude from updates, separated by a '|' symbol
+# By default, some Kubernetes and EKS managed namespaces are excluded
+# Add any additional namespaces to exclude, separated by '|'
+
+EXCLUDED_NAMESPACES="kube-system|aws-observability|aws-secrets-manager|aws-load-balancer-controller"
