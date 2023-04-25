@@ -60,7 +60,7 @@ The script creates a backup file in the same directory, named `backup_secrets_<t
 
 ## Troubleshooting
 
-Ensure that `kubectl` and `yq` are installed and properly configured. If you encounter issues with the script, check the following:
+Ensure that `kubectl`,`jq` and `yq` are installed and properly configured. If you encounter issues with the script, check the following:
 
 - Verify that your Docker Hub credentials are correct.
 - Ensure that the Kubernetes secret name is correct and exists in the specified namespaces.
